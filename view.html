@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - Portfolio</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f4f4f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .meta {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .meta strong {
+            color: #333;
+        }
+
+        .subject {
+            color: #0056b3;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .message {
+            line-height: 1.5;
+            color: #444;
+            white-space: pre-wrap;
+        }
+
+        .location-link {
+            text-decoration: none;
+            color: #d63384;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>📥 Inbox</h1>
+        <div id="messagesList">
+            <p>Loading messages...</p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore, collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAKepa05WzXRaozJRujI6FkhFsbq9M1Rrg",
+            authDomain: "portfolio-d57fe.firebaseapp.com",
+            projectId: "portfolio-d57fe",
+            storageBucket: "portfolio-d57fe.firebasestorage.app",
+            messagingSenderId: "637664134231",
+            appId: "1:637664134231:web:487dcd870af40727d40f12"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const listDiv = document.getElementById('messagesList');
+
+        // Query: Get messages sorted by newest first
+        const q = query(collection(db, 'messages'), orderBy('createdAt', 'desc'));
+
+        // Listen for real-time updates
+        onSnapshot(q, (snapshot) => {
+            listDiv.innerHTML = '';
+
+            if (snapshot.empty) {
+                listDiv.innerHTML = '<p style="text-align:center">No messages yet.</p>';
+                return;
+            }
+
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+
+                // Format Date
+                const date = data.createdAt
+                    ? new Date(data.createdAt.toMillis()).toLocaleString()
+                    : new Date().toLocaleString();
+
+                // Handle Location
+                let locHtml = '';
+                if (data.location) {
+                    const mapUrl = `https://www.google.com/maps?q=${data.location.latitude},${data.location.longitude}`;
+                    locHtml = `<a href="${mapUrl}" target="_blank" class="location-link">📍 View Location</a>`;
+                } else {
+                    locHtml = '<span style="color:#999">No Location Data</span>';
+                }
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+          <div class="meta">
+            <strong>${data.name}</strong> &lt;${data.email}&gt;
+            <span>${date}</span>
+          </div>
+          <span class="subject">${data.subject}</span>
+          <div class="message">${data.message}</div>
+          <br>
+          <div class="meta" style="margin-bottom:0">${locHtml}</div>
+        `;
+                listDiv.appendChild(card);
+            });
+        }, (error) => {
+            console.error(error);
+            listDiv.innerHTML = `<p style="color:red; text-align:center">Error loading messages. Ensure Firestore is in Test Mode.</p>`;
+        });
+
+    </script>
+</body>
+
+</html>

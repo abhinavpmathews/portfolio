@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Drone Details</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files (CDN Included) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+    <!-- Swiper CSS left here as per 'no other changes', but unused in body -->
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- Structure & Layout Fixes + Update -->
+    <style>
+        /* 1. Remove Sidebar margins */
+        body {
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+        }
+
+        /* 2. Ensure Preloader is removed */
+        #preloader {
+            display: none !important;
+        }
+
+        /* 3. Ensure content is visible even if AOS JS fails */
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        /* 4. Visual Structure Improvements */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+            margin: 40px 0;
+        }
+
+        .project-gallery img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .project-gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Feature Item Structure */
+        .feature-item {
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* 5. Video Player Update Styling */
+        .portfolio-video {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+            /* Matches gallery radius */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            /* Matches gallery hover shadow */
+            outline: none;
+            background-color: #000;
+            /* Placeholder background before load */
+        }
+    </style>
+
+</head>
+
+<body class="portfolio-details-page">
+
+    <!-- Sidebar Header Removed -->
+
+    <main class="main">
+
+        <!-- Page Title (Breadcrumbs Removed) -->
+        <div class="page-title dark-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 position-relative">
+                        <h1 class="mb-0">Drone Details</h1>
+
+                        <!-- Back to Home Button -->
+                        <a href="index.html#portfolio"
+                            class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y">
+                            <i class="bi bi-arrow-left me-2"></i> Back to Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Page Title -->
+
+        <!-- Portfolio Details Section -->
+        <section id="portfolio-details" class="portfolio-details section pt-4">
+
+            <div class="container">
+
+                <div class="row gy-4 mb-5">
+
+                    <video class="portfolio-video" autoplay loop muted playsinline preload="metadata"
+                        poster="./assets/img/portfolio/Entry Title.jpg">
+                        <source src="./assets/img/portfolio/FPV drone.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+
+
+
+                    <div class="row">
+                        <!-- Project Info -->
+                        <div class="col-lg-4">
+                            <div class="portfolio-info h-100">
+                                <h3>Project Information</h3>
+                                <ul>
+                                    <li><strong>Category</strong>: Game Development</li>
+                                    <li><strong>Software</strong>: Unity 3D</li>
+                                    <li><strong>Project date</strong>: 01 May, 2024</li>
+                                    <li>
+                                        <strong>Project Gallery</strong>:
+                                        <a href="#gallery" style="color: aqua;">View</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Project Overview -->
+                        <div class="col-lg-8">
+                            <div class="portfolio-description h-100">
+                                <h2 class="mb-4">Project Overview</h2>
+                                <p class="mb-4">
+                                    This mini project involves the development of a fully functional 3D game created
+                                    using Unity 3D
+                                    as part of my college coursework. The game includes multiple playable maps, each
+                                    offering unique
+                                    environments and challenges to enhance gameplay variety and user engagement. Core
+                                    mechanics such
+                                    as player movement, interactions, and game logic were implemented to ensure smooth
+                                    and responsive
+                                    gameplay.
+                                </p>
+                                <p>
+                                    Emphasis was placed on delivering a complete game experience through proper scene
+                                    management,
+                                    level transitions, and interactive elements within each map. This project
+                                    demonstrates a solid
+                                    understanding of game development fundamentals, Unity’s workflow, and real-time
+                                    rendering.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr class="section-divider">
+
+                    <!-- Project Gallery -->
+                    <div class="project-gallery my-5" id="gallery">
+                        <h3 class="mb-4">Project Gallery</h3>
+                        <div class="row g-4">
+                            <div class="col-md-4 col-sm-6">
+                                <a href="./assets/img/portfolio/Entry Title.jpg" class="glightbox"
+                                    data-gallery="portfolio-details-gallery">
+                                    <img src="./assets/img/portfolio/Entry Title.jpg" alt="Gallery Image 1"
+                                        class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <a href="./assets/img/portfolio/Main Menu.jpg" class="glightbox"
+                                    data-gallery="portfolio-details-gallery">
+                                    <img src="./assets/img/portfolio/Main Menu.jpg" alt="Gallery Image 2"
+                                        class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <a href="./assets/img/portfolio/Gate.png" class="glightbox"
+                                    data-gallery="portfolio-details-gallery">
+                                    <img src="./assets/img/portfolio/Gate.png" alt="Gallery Image 3" class="img-fluid">
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <!-- Key Features -->
+                    <div class="features">
+                        <h3 class="mb-5">Key Features</h3>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <div class="d-flex">
+                                        <i class="bi bi-check-circle-fill me-3 mt-1"></i>
+                                        <div>
+                                            <h4>Multiple Playable Maps</h4>
+                                            <p class="mb-0">
+                                                Designed and implemented multiple game maps with unique environments
+                                                and layouts,
+                                                providing varied gameplay experiences and increasing replayability.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <div class="d-flex">
+                                        <i class="bi bi-shield-check me-3 mt-1"></i>
+                                        <div>
+                                            <h4>Fully Functional Game Mechanics</h4>
+                                            <p class="mb-0">
+                                                Developed complete gameplay mechanics including player controls,
+                                                collision handling,
+                                                objectives, and game logic to ensure a smooth and reliable gaming
+                                                experience.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <div class="d-flex">
+                                        <i class="bi bi-graph-up me-3 mt-1"></i>
+                                        <div>
+                                            <h4>Optimized Performance</h4>
+                                            <p class="mb-0">
+                                                Optimized scenes and assets to maintain stable performance across
+                                                different maps,
+                                                ensuring consistent frame rates during gameplay.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <div class="d-flex">
+                                        <i class="bi bi-gear me-3 mt-1"></i>
+                                        <div>
+                                            <h4>Scene Management & Flow</h4>
+                                            <p class="mb-0">
+                                                Implemented smooth scene transitions, level loading, and basic game
+                                                state management
+                                                to create a cohesive end-to-end game experience.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            </div>
+        </section><!-- /Portfolio Details Section -->
+
+    </main>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader (Hidden) -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+    <!-- Main Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. Force remove preloader immediately
+            let preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+
+            // 2. Initialize Swiper (REMOVED - No longer used)
+            // Swiper initialization code has been removed since we are now using a video tag.
+
+            // 3. Initialize GLightbox
+            if (typeof GLightbox !== 'undefined') {
+                const lightbox = GLightbox({
+                    selector: '.glightbox',
+                    touchNavigation: true,
+                    loop: true,
+                });
+            }
+
+            // 4. Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    easing: 'ease-in-out',
+                    once: true,
+                    mirror: false
+                });
+            }
+
+            // 5. Scroll Top Button Logic
+            let scrollTop = document.querySelector('.scroll-top');
+            if (scrollTop) {
+                const toggleScrollTop = function () {
+                    window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+                };
+                window.addEventListener('load', toggleScrollTop);
+                document.addEventListener('scroll', toggleScrollTop);
+                scrollTop.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

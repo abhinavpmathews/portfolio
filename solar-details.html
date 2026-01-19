@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Solar Details</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files (CDN Included) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Structure & Layout Fixes -->
+    <style>
+        /* 1. Remove Sidebar margins */
+        body {
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+            font-family: var(--bs-body-font-family);
+            background-color: #f4f4f4;
+            /* Light grey page background */
+        }
+
+        /* 2. Ensure Preloader is removed */
+        #preloader {
+            display: none !important;
+        }
+
+        /* 3. Ensure content is visible even if AOS JS fails */
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        /* 4. Content Card Style - Black Border with Shadow */
+        .content-card {
+            border: 1px solid #000000;
+            /* Black Border */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            /* Shadow */
+            border-radius: 10px;
+            background-color: #ffffff;
+            padding: 30px;
+            margin-bottom: 30px;
+            /* Spacing between sections */
+            color: #212529;
+            /* Dark text for readability */
+        }
+
+        /* Override colors inside content cards to be dark */
+        .content-card h1,
+        .content-card h2,
+        .content-card h3,
+        .content-card h4,
+        .content-card p,
+        .content-card ul,
+        .content-card li,
+        .content-card a {
+            color: #212529 !important;
+        }
+
+        .content-card a {
+            text-decoration: underline;
+        }
+
+        /* Feature Item Structure Adjustments */
+        .feature-item {
+            height: 100%;
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            transition: transform 0.2s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            background: #e9ecef;
+        }
+
+        .feature-item i {
+            color: #0d6efd;
+            /* Blue icons */
+            font-size: 1.5rem;
+        }
+
+        /* Mobile Video Frame Styles */
+        .mobile-frame {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 9/16;
+            background: #000;
+            border-radius: 35px;
+            border: 8px solid #2d2d2d;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            outline: none;
+        }
+
+        .mobile-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Scroll Top */
+        .scroll-top {
+            position: fixed;
+            visibility: hidden;
+            opacity: 0;
+            right: 15px;
+            bottom: -15px;
+            z-index: 99999;
+            background: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            transition: all 0.4s;
+            color: #fff;
+        }
+
+        .scroll-top.active {
+            visibility: visible;
+            opacity: 1;
+            bottom: 15px;
+        }
+
+        /* Page Title with Reduced Height */
+        .page-title.dark-background {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 40px 0;
+            /* Reduced from 80px to 40px */
+            margin-bottom: 20px;
+            border-bottom: 5px solid #000;
+            /* Matching border style */
+        }
+
+        .portfolio-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .portfolio-info li {
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .project-gallery img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 6px;
+            border: 1px solid #000;
+        }
+
+        .project-gallery img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+</head>
+
+<body class="portfolio-details-page">
+
+    <main class="main">
+
+        <!-- Page Title (Height Reduced) -->
+        <div class="page-title dark-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 position-relative">
+                        <h1 class="mb-0">Solar Details</h1>
+
+                        <!-- Back to Home Button -->
+                        <a href="index.html#portfolio"
+                            class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y"
+                            style="border-color: #fff;">
+                            <i class="bi bi-arrow-left me-2"></i> Back to Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Page Title -->
+
+        <!-- Portfolio Details Section -->
+        <section id="portfolio-details" class="portfolio-details section">
+
+            <div class="container">
+
+                <!-- SECTION 1: Slider & Info -->
+                <div class="row content-card">
+                    <div class="col-lg-8">
+                        <div class="portfolio-details-slider swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                                {
+                                  "loop": true,
+                                  "speed": 600,
+                                  "autoplay": {
+                                    "delay": 5000
+                                  },
+                                  "slidesPerView": "auto",
+                                  "pagination": {
+                                    "el": ".swiper-pagination",
+                                    "type": "bullets",
+                                    "clickable": true
+                                  },
+                                  "centeredSlides": true
+                                }
+                            </script>
+
+                            <div class="swiper-wrapper align-items-center">
+                                <!-- Single Slide with Mobile Video -->
+                                <div class="swiper-slide d-flex justify-content-center align-items-center"
+                                    style="width: 100%;">
+                                    <div class="mobile-frame">
+                                        <!-- Using a placeholder architectural video -->
+                                        <video id="projectVideo" class="w-100 h-100" controls playsinline loop muted
+                                            autoplay poster="./assets/img/portfolio/16.png">
+                                            <source src="./assets/img/portfolio/VN20240818_175916.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+
+                    <!-- Project Info -->
+                    <div class="col-lg-4">
+                        <div class="portfolio-info h-100">
+                            <h3>Project Information</h3>
+                            <ul>
+                                <li><strong>Category:</strong> Virtual Environment</li>
+                                <li><strong>Software:</strong> Unity 3D</li>
+                                <li><strong>Project date:</strong> 01 October, 2024</li>
+                                <li><strong>Project Gallery:</strong> <a href="#gallery"
+                                        style="color: #0d6efd !important;">View</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> <!-- End Section 1 -->
+
+                <!-- SECTION 2: Project Overview -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="content-card">
+                            <h2 class="mb-4">Project Overview</h2>
+                            <p class="mb-4">
+                                This project presents a virtual recreation of the solar system developed using Unity 3D,
+                                designed to
+                                accurately represent the spatial arrangement, scale relationships, and motion of
+                                celestial bodies.
+                                Each planet was modeled and positioned to reflect its relative size and orbital path,
+                                creating an
+                                immersive and educational 3D experience that allows users to explore the solar system in
+                                an interactive
+                                environment.
+                            </p>
+                            <p>
+                                A strong emphasis was placed on visual realism through physically based materials,
+                                high-quality textures,
+                                and carefully tuned lighting setups that simulate natural space illumination. Realistic
+                                light falloff,
+                                shadows, and reflections were used to enhance depth and scale, resulting in a visually
+                                compelling and
+                                scientifically inspired simulation. This project demonstrates proficiency in Unity 3D,
+                                real-time
+                                rendering, and the creation of accurate, visually rich virtual environments.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: Project Gallery -->
+                <div class="row" id="gallery">
+                    <div class="col-lg-12">
+                        <div class="content-card">
+                            <h3 class="mb-4">Project Gallery</h3>
+                            <div class="row g-4">
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/17.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/17.png" alt="Gallery Image 1"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/16.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/16.png" alt="Gallery Image 2"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/15.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/15.png" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: Key Features -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="content-card">
+                            <h3 class="mb-4">Project Key Features</h3>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-building me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Accurate Planetary Representation</h4>
+                                                <p class="mb-0">
+                                                    Modeled and positioned planets to reflect realistic size ratios,
+                                                    orbital paths,
+                                                    and spatial relationships, creating an authentic representation of
+                                                    the solar
+                                                    system within a 3D environment.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-palette-fill me-3 mt-1"></i>
+                                            <div>
+                                                <h4>High-Quality Materials & Textures</h4>
+                                                <p class="mb-0">
+                                                    Applied detailed planetary textures and physically based materials
+                                                    to accurately
+                                                    represent surface variations, atmospheres, and visual
+                                                    characteristics of each
+                                                    celestial body.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-lightbulb-fill me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Realistic Space Lighting</h4>
+                                                <p class="mb-0">
+                                                    Implemented precise lighting setups to simulate solar illumination,
+                                                    realistic
+                                                    light falloff, shadows, and reflections, enhancing depth and realism
+                                                    across the
+                                                    entire solar system.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-tree-fill me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Interactive Exploration Environment</h4>
+                                                <p class="mb-0">
+                                                    Designed an immersive space environment allowing users to freely
+                                                    explore planets,
+                                                    observe orbital motion, and experience the scale and structure of
+                                                    the solar system
+                                                    interactively.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section><!-- /Portfolio Details Section -->
+
+    </main>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader (Hidden) -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+    <!-- Main Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. Force remove preloader immediately
+            let preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+
+            // 2. Initialize Swiper
+            if (typeof Swiper !== 'undefined') {
+                const swiperEl = document.querySelector('.init-swiper');
+                const swiperConfig = JSON.parse(swiperEl.querySelector('.swiper-config').textContent);
+                new Swiper('.init-swiper', swiperConfig);
+            }
+
+            // 3. Initialize GLightbox
+            if (typeof GLightbox !== 'undefined') {
+                const lightbox = GLightbox({
+                    selector: '.glightbox',
+                    touchNavigation: true,
+                    loop: true,
+                });
+            }
+
+            // 4. Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    easing: 'ease-in-out',
+                    once: true,
+                    mirror: false
+                });
+            }
+
+            // 5. Scroll Top Button Logic
+            let scrollTop = document.querySelector('.scroll-top');
+            if (scrollTop) {
+                const toggleScrollTop = function () {
+                    window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+                };
+                window.addEventListener('load', toggleScrollTop);
+                document.addEventListener('scroll', toggleScrollTop);
+                scrollTop.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

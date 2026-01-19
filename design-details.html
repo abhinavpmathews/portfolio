@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Design Details</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files (CDN Included) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- Structure & Layout Fixes -->
+    <style>
+        /* 1. Remove Sidebar margins */
+        body {
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+        }
+
+        /* 2. Ensure Preloader is removed */
+        #preloader {
+            display: none !important;
+        }
+
+        /* 3. Ensure content is visible even if AOS JS fails */
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        /* 4. Visual Structure Improvements */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+            margin: 40px 0;
+        }
+
+        /* Feature Item Structure */
+        .feature-item {
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* ========================================= */
+        /*  UPDATES FOR PORTRAIT SLIDER & MASONRY GALLERY */
+        /* ========================================= */
+
+        /* --- UPDATE 1: Slider to Portrait Mode --- */
+        .portfolio-details-slider .swiper-slide {
+            height: 650px;
+            /* Fixed height for the slide container to accommodate portrait */
+            display: flex;
+            justify-content: center;
+            /* Center image horizontally */
+            align-items: center;
+            /* Center image vertically */
+        }
+
+        .portfolio-details-slider img {
+            height: 100%;
+            /* Fill the height */
+            width: auto;
+            /* Width adjusts automatically to maintain aspect ratio */
+            max-width: 100%;
+            /* Prevent overflow */
+            object-fit: cover;
+            /* Ensures the image covers the area nicely */
+        }
+
+        /* --- UPDATE 2: Dynamic Masonry Gallery (Size based on image) --- */
+        .project-gallery .row {
+            display: block;
+            /* Disable Bootstrap Flexbox grid */
+            column-count: 3;
+            /* Create 3 columns */
+            column-gap: 1.5rem;
+            /* Match Bootstrap g-4 gap */
+        }
+
+        .project-gallery .col-md-4,
+        .project-gallery .col-sm-6 {
+            width: 100%;
+            /* Force full width inside the column */
+            float: none;
+            /* Remove float */
+            margin-bottom: 0;
+            /* Reset default margin */
+            break-inside: avoid;
+            /* Prevent image from being cut across columns */
+            page-break-inside: avoid;
+            margin-bottom: 1.5rem;
+            /* Add bottom spacing for items */
+        }
+
+        .project-gallery img {
+            width: 100%;
+            /* Fill the column width */
+            height: auto;
+            /* Height is dynamic based on aspect ratio */
+            display: block;
+            /* Remove bottom inline spacing */
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Responsive Gallery Columns */
+        @media (max-width: 991px) {
+            .project-gallery .row {
+                column-count: 2;
+            }
+
+            .portfolio-details-slider .swiper-slide {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .project-gallery .row {
+                column-count: 1;
+            }
+
+            .portfolio-details-slider .swiper-slide {
+                height: 400px;
+            }
+        }
+
+        /* ========================================= */
+    </style>
+
+</head>
+
+<body class="portfolio-details-page">
+
+    <!-- Sidebar Header Removed -->
+
+    <main class="main">
+
+        <!-- Page Title (Breadcrumbs Removed) -->
+        <div class="page-title dark-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 position-relative">
+                        <h1 class="mb-0">Design Details</h1>
+
+                        <!-- Back to Home Button -->
+                        <a href="index.html#portfolio"
+                            class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y">
+                            <i class="bi bi-arrow-left me-2"></i> Back to Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Page Title -->
+
+        <!-- Portfolio Details Section -->
+        <section id="portfolio-details" class="portfolio-details section pt-4">
+
+            <div class="container">
+
+                <div class="row gy-4 mb-5">
+
+                    <!-- Slider -->
+                    <div class="col-lg-8">
+                        <div class="portfolio-details-slider swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+
+                            <div class="swiper-wrapper align-items-center">
+                                <!-- Portrait Images: 500x750 -->
+                                <div class="swiper-slide">
+                                    <img src="./assets/img/portfolio/Design/2.jpg" alt="Portfolio Image"
+                                        class="img-fluid" loading="lazy">
+                                </div>
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+
+                    <!-- Project Info -->
+                    <div class="col-lg-4">
+                        <div class="portfolio-info h-100">
+                            <h3>Project Information</h3>
+                            <ul>
+                                <li><strong>Category</strong>: Graphic Designing</li>
+                                <li><strong>Software</strong>: Adobe Photoshop, Canva</li>
+                                <li><strong>Project date</strong>: 01 March, 2025</li>
+                                <li>
+                                    <strong>Project Gallery</strong>:
+                                    <a href="#gallery" style="color: aqua;">View</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div> <!-- End Slider Row -->
+
+                <!-- Content & Features -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+
+
+                        <hr class="section-divider">
+
+                        <!-- Project Gallery (Dynamic Masonry Layout) -->
+                        <div class="project-gallery my-5" id="gallery">
+                            <h3 class="mb-4">Project Gallery</h3>
+                            <div class="row g-4">
+                                <!-- Note: Images have different aspect ratios to demonstrate dynamic sizing -->
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/1.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/1.jpg" alt="Gallery Image 1"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/2.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/2.jpg" alt="Gallery Image 2"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/3.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/3.png" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/4.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/4.jpg" alt="Gallery Image 4"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/5.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/5.jpg" alt="Gallery Image 5"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/6.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/6.jpg" alt="Gallery Image 6"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/7.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/7.jpg" alt="Gallery Image 7"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/8.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/8.jpg" alt="Gallery Image 8"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/9.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/9.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/10.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/10.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/11.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/11.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/12.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/12.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/13.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/13.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/14.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/14.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/15.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/15.png" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/16.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/16.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/17.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/17.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/18.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/18.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/19.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/19.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/20.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/20.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/21.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/21.png" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/22.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/22.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/23.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/23.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/24.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/24.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/25.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/25.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/26.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/26.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/27.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/27.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/Design/28.jpg" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <!-- Portrait -->
+                                        <img src="./assets/img/portfolio/Design/28.jpg" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- Key Features -->
+                        <div class="features">
+                            <h3 class="mb-5">Key Features</h3>
+                            <div class="row g-4">
+
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-check-circle-fill me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Creative Concept Development</h4>
+                                                <p class="mb-0">
+                                                    Developed original design concepts driven by imagination and visual
+                                                    storytelling,
+                                                    transforming abstract ideas into compelling graphic compositions.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-shield-check me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Strong Visual Identity</h4>
+                                                <p class="mb-0">
+                                                    Crafted cohesive visual styles using color theory, typography, and
+                                                    layout principles
+                                                    to ensure clarity, brand consistency, and aesthetic impact across
+                                                    designs.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-graph-up me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Productive Design Workflow</h4>
+                                                <p class="mb-0">
+                                                    Maintained an efficient creative workflow to deliver high-quality
+                                                    designs within
+                                                    deadlines while exploring multiple variations and ideas.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-gear me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Versatile Design Execution</h4>
+                                                <p class="mb-0">
+                                                    Created diverse design outputs including posters, social media
+                                                    graphics, banners,
+                                                    and digital assets, adapting styles to suit different creative
+                                                    requirements.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- /Portfolio Details Section -->
+
+    </main>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader (Hidden) -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+    <!-- Main Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. Force remove preloader immediately
+            let preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+
+            // 2. Initialize Swiper
+            if (typeof Swiper !== 'undefined') {
+                new Swiper('.init-swiper', {
+                    loop: true,
+                    speed: 600,
+                    autoplay: { delay: 5000 },
+                    slidesPerView: 'auto',
+                    pagination: {
+                        el: '.swiper-pagination',
+                        type: 'bullets',
+                        clickable: true
+                    }
+                });
+            }
+
+            // 3. Initialize GLightbox
+            if (typeof GLightbox !== 'undefined') {
+                const lightbox = GLightbox({
+                    selector: '.glightbox',
+                    touchNavigation: true,
+                    loop: true,
+                });
+            }
+
+            // 4. Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    easing: 'ease-in-out',
+                    once: true,
+                    mirror: false
+                });
+            }
+
+            // 5. Scroll Top Button Logic
+            let scrollTop = document.querySelector('.scroll-top');
+            if (scrollTop) {
+                const toggleScrollTop = function () {
+                    window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+                };
+                window.addEventListener('load', toggleScrollTop);
+                document.addEventListener('scroll', toggleScrollTop);
+                scrollTop.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

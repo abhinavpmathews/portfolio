@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>College Details</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files (CDN Included) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- Structure & Layout Fixes -->
+    <style>
+        /* 1. Remove Sidebar margins */
+        body {
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+        }
+
+        /* 2. Ensure Preloader is removed */
+        #preloader {
+            display: none !important;
+        }
+
+        /* 3. Ensure content is visible even if AOS JS fails */
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        /* 4. Visual Structure Improvements */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+            margin: 40px 0;
+        }
+
+        .project-gallery img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .project-gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Feature Item Structure */
+        .feature-item {
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+
+</head>
+
+<body class="portfolio-details-page">
+
+    <!-- Sidebar Header Removed -->
+
+    <main class="main">
+
+        <!-- Page Title (Breadcrumbs Removed) -->
+        <div class="page-title dark-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 position-relative">
+                        <h1 class="mb-0">College Details</h1>
+
+                        <!-- Back to Home Button -->
+                        <a href="index.html#portfolio"
+                            class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y">
+                            <i class="bi bi-arrow-left me-2"></i> Back to Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Page Title -->
+
+        <!-- Portfolio Details Section -->
+        <section id="portfolio-details" class="portfolio-details section pt-4">
+
+            <div class="container">
+
+                <div class="row gy-4 mb-5">
+
+                    <!-- Slider -->
+                    <div class="col-lg-8">
+                        <div class="portfolio-details-slider swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+
+                            <div class="swiper-wrapper align-items-center">
+                                <div class="swiper-slide">
+                                    <img src="./assets/img/portfolio/College/1.png" alt="Portfolio Image"
+                                        class="img-fluid" loading="lazy">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./assets/img/portfolio/College/4.png" alt="Portfolio Image"
+                                        class="img-fluid" loading="lazy">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./assets/img/portfolio/College/3.png" alt="Portfolio Image"
+                                        class="img-fluid" loading="lazy">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./assets/img/portfolio/College/2.png" alt="Portfolio Image"
+                                        class="img-fluid" loading="lazy">
+                                </div>
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+
+                    <!-- Project Info -->
+                    <div class="col-lg-4">
+                        <div class="portfolio-info h-100">
+                            <h3>Project Information</h3>
+                            <ul>
+                                <li><strong>Category</strong>: Virtual College</li>
+                                <li><strong>Software</strong>: Blender</li>
+                                <li><strong>Project date</strong>: 01 January, 2024</li>
+                                <li><strong>Project Gallery</strong>: <a href="#gallery" style="color: aqua;">View</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div> <!-- End Slider Row -->
+
+                <!-- Content & Features -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <!-- Project Overview -->
+                        <div class="portfolio-description mb-5">
+                            <h2 class="mb-4">Project Overview</h2>
+                            <p class="mb-4">
+                                This project focuses on the accurate 3D reconstruction of my college building, modeled
+                                in Blender with
+                                close attention to real-world dimensions, proportions, and architectural details. The
+                                objective was to
+                                replicate the structure as precisely as possible, maintaining the exact scale, layout,
+                                and spatial
+                                relationships found in the actual campus building. From the primary structural framework
+                                to individual
+                                elements such as walls, floors, windows, and stairways, every component was created
+                                based on careful
+                                observation and measurement to achieve a faithful digital representation.
+                            </p>
+                            <p>
+                                A strong emphasis was placed on realism through detailed texturing, material accuracy,
+                                and lighting setups
+                                that reflect real environmental conditions. Exterior and interior surfaces were refined
+                                to match the
+                                building’s original look, ensuring visual authenticity across different viewpoints. This
+                                project
+                                demonstrates proficiency in realistic architectural modeling, precision-based workflows,
+                                and the ability
+                                to translate real-world structures into accurate and immersive 3D environments using
+                                Blender.
+                            </p>
+
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- Project Gallery -->
+                        <div class="project-gallery my-5" id="gallery">
+                            <h3 class="mb-4">Project Gallery</h3>
+                            <div class="row g-4">
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/1.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/1.png" alt="Gallery Image 1"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/2.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/2.png" alt="Gallery Image 2"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/3.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/3.png" alt="Gallery Image 3"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/4.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/4.png" alt="Gallery Image 4"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/5.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/5.png" alt="Gallery Image 5"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/6.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/6.png" alt="Gallery Image 6"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/7.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/7.png" alt="Gallery Image 7"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/8.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/8.png" alt="Gallery Image 8"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/9.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/9.png" alt="Gallery Image 9"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/10.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/10.png" alt="Gallery Image 10"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/11.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/11.png" alt="Gallery Image 11"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/12.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/12.png" alt="Gallery Image 12"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/13.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/13.png" alt="Gallery Image 13"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/14.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/14.png" alt="Gallery Image 14"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/15.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/15.png" alt="Gallery Image 15"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/16.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/16.png" alt="Gallery Image 16"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/17.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/17.png" alt="Gallery Image 17"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/18.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/18.png" alt="Gallery Image 18"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/19.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/19.png" alt="Gallery Image 19"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/20.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/20.png" alt="Gallery Image 20"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/21.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/21.png" alt="Gallery Image 21"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/22.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/22.png" alt="Gallery Image 22"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/23.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/23.png" alt="Gallery Image 23"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="./assets/img/portfolio/College/24.png" class="glightbox"
+                                        data-gallery="portfolio-details-gallery">
+                                        <img src="./assets/img/portfolio/College/24.png" alt="Gallery Image 24"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- Key Features -->
+                        <div class="features">
+                            <h3 class="mb-5">Project Key Features</h3>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-building me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Accurate Architectural Reconstruction</h4>
+                                                <p class="mb-0">
+                                                    Recreated the college building in Blender with real-world scale and
+                                                    proportions,
+                                                    focusing on structural accuracy, floor layouts, wall thickness, and
+                                                    architectural
+                                                    alignment based on the original building design.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-palette-fill me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Realistic Materials & Texturing</h4>
+                                                <p class="mb-0">
+                                                    Applied accurate material properties to match real surfaces such as
+                                                    concrete, glass,
+                                                    painted walls, and flooring, ensuring visual realism and consistency
+                                                    across the
+                                                    entire model.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-lightbulb-fill me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Physically Based Lighting</h4>
+                                                <p class="mb-0">
+                                                    Designed lighting setups to simulate natural daylight and ambient
+                                                    conditions,
+                                                    enhancing depth, shadows, and realism while maintaining accurate
+                                                    architectural
+                                                    visibility.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <div class="d-flex">
+                                            <i class="bi bi-tree-fill me-3 mt-1"></i>
+                                            <div>
+                                                <h4>Campus Context & Surroundings</h4>
+                                                <p class="mb-0">
+                                                    Incorporated surrounding elements such as pathways, greenery, and
+                                                    open spaces to
+                                                    reflect the real campus environment and provide spatial context to
+                                                    the building
+                                                    model.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- /Portfolio Details Section -->
+
+    </main>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader (Hidden) -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+    <!-- Main Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. Force remove preloader immediately
+            let preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+
+            // 2. Initialize Swiper
+            if (typeof Swiper !== 'undefined') {
+                new Swiper('.init-swiper', {
+                    loop: true,
+                    speed: 600,
+                    autoplay: { delay: 5000 },
+                    slidesPerView: 'auto',
+                    pagination: {
+                        el: '.swiper-pagination',
+                        type: 'bullets',
+                        clickable: true
+                    }
+                });
+            }
+
+            // 3. Initialize GLightbox
+            if (typeof GLightbox !== 'undefined') {
+                const lightbox = GLightbox({
+                    selector: '.glightbox',
+                    touchNavigation: true,
+                    loop: true,
+                });
+            }
+
+            // 4. Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    easing: 'ease-in-out',
+                    once: true,
+                    mirror: false
+                });
+            }
+
+            // 5. Scroll Top Button Logic
+            let scrollTop = document.querySelector('.scroll-top');
+            if (scrollTop) {
+                const toggleScrollTop = function () {
+                    window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+                };
+                window.addEventListener('load', toggleScrollTop);
+                document.addEventListener('scroll', toggleScrollTop);
+                scrollTop.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
