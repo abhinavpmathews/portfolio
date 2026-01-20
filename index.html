@@ -165,41 +165,33 @@
               </div>
             </div>
 
-            <!-- 2. Back Card: Personal Details (New Addition) -->
             <div class="profile-card profile-details-card mt-4" data-aos="fade-up" data-aos-delay="300"
               style="min-height: 550px;">
-              <div class="profile-content h-100 d-flex flex-column">
-                <div class="details-header mb-5">
+              <!-- Added justify-content-center (vertical) and align-items-center (horizontal) to center everything in the card -->
+              <div class="profile-content h-100 d-flex flex-column justify-content-center align-items-center">
+                <!-- Added text-center to center the header text -->
+                <div class="details-header mb-5 text-center">
                   <h5 class="text-uppercase small text-muted ls-2">Personal Details</h5>
                 </div>
 
-                <div class="personal-info-list">
+                <div class="personal-info-list text-center">
 
-                  <!-- Detail Item -->
-                  <div class="detail-item d-flex align-items-center mb-4">
-                    <div class="icon-box flex-shrink-0">
-                      <i class="bi bi-calendar-event"></i>
+                  <!-- Detail Item: Added justify-content-center -->
+                  <div class="detail-item d-flex align-items-center mb-4 justify-content-center">
+                    <div class="icon-box flex-shrink-0"
+                      style="width: 50px; display: flex; justify-content: center; align-items: center;">
+                      <i class="bi bi-gender-male"></i>
                     </div>
                     <div class="info-text ms-3">
-                      <span class="d-block text-white fw-bold">Date of Birth</span>
-                      <span class="fw-bold small text-white">16 Decemeber 2003</span>
+                      <span class="d-block text-white fw-bold">Gender</span>
+                      <span class="fw-bold text-white">Male</span>
                     </div>
                   </div>
 
-                  <!-- Detail Item -->
-                  <div class="detail-item d-flex align-items-center mb-4">
-                    <div class="icon-box flex-shrink-0">
-                      <i class="bi bi-droplet-fill"></i>
-                    </div>
-                    <div class="info-text ms-3">
-                      <span class="d-block text-white fw-bold">Blood Group</span>
-                      <span class="fw-bold small text-white">A+ (Positive)</span>
-                    </div>
-                  </div>
-
-                  <!-- Detail Item -->
-                  <div class="detail-item d-flex align-items-center mb-4">
-                    <div class="icon-box flex-shrink-0">
+                  <!-- Detail Item: Added justify-content-center -->
+                  <div class="detail-item d-flex align-items-center mb-4 justify-content-center">
+                    <div class="icon-box flex-shrink-0"
+                      style="width: 50px; display: flex; justify-content: center; align-items: center;">
                       <i class="bi bi-passport"></i>
                     </div>
                     <div class="info-text ms-3">
@@ -208,16 +200,36 @@
                     </div>
                   </div>
 
-                  <!-- Detail Item -->
-                  <div class="detail-item d-flex align-items-center mb-4">
-                    <div class="icon-box flex-shrink-0">
-                      <i class="bi bi-gender-ambiguous"></i>
+                  <!-- Detail Item: Added justify-content-center -->
+                  <div class="detail-item d-flex align-items-center mb-4 justify-content-center">
+                    <div class="icon-box flex-shrink-0"
+                      style="width: 50px; display: flex; justify-content: center; align-items: center;">
+                      <i class="bi bi-droplet-fill"></i>
                     </div>
                     <div class="info-text ms-3">
-                      <span class="d-block text-white fw-bold">Gender</span>
-                      <span class="fw-bold text-white">Male</span>
+                      <span class="d-block text-white fw-bold">Blood Group</span>
+                      <span class="fw-bold small text-white">A+ (Positive)</span>
                     </div>
                   </div>
+
+
+                  <!-- Detail Item: Added justify-content-center to center the icon+text row -->
+                  <div class="detail-item d-flex align-items-center mb-4 justify-content-center">
+                    <div class="icon-box flex-shrink-0"
+                      style="width: 50px; display: flex; justify-content: center; align-items: center;">
+                      <i class="bi bi-calendar-event"></i>
+                    </div>
+                    <div class="info-text ms-3">
+                      <span class="d-block text-white fw-bold">Date of Birth</span>
+                      <span class="fw-bold small text-white">16 Decemeber 2003</span>
+                    </div>
+                  </div>
+
+
+
+
+
+
 
 
 
