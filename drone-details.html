@@ -119,16 +119,32 @@
 
                 <div class="row gy-4 mb-5">
 
-                    <video class="portfolio-video" autoplay loop muted playsinline preload="metadata"
-                        poster="./assets/img/portfolio/Entry Title.jpg">
-                        <source src="./assets/img/portfolio/FPV drone.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <!-- VIDEO HERO -->
+                    <div style="
+                        position: relative;
+                        width: 100%;
+                        aspect-ratio: 16 / 9;
+                        overflow: hidden;
+                        border-radius: 18px;
+                        background: #000;
+                        margin-bottom: 40px;
+                    ">
+                        <iframe
+                            src="https://www.youtube.com/embed/AjpOfMzSp3s?autoplay=1&mute=1&loop=1&playlist=AjpOfMzSp3s&controls=1&showinfo=0&rel=0&playsinline=1"
+                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                border: none;
+                            ">
+                        </iframe>
+                    </div>
 
+                    <!-- CONTENT ROW (SPACING ADDED) -->
+                    <div class="row gy-4" style="margin-top: 20px;">
 
-
-
-                    <div class="row">
                         <!-- Project Info -->
                         <div class="col-lg-4">
                             <div class="portfolio-info h-100">
@@ -138,8 +154,9 @@
                                     <li><strong>Software</strong>: Unity 3D</li>
                                     <li><strong>Project date</strong>: 01 May, 2024</li>
                                     <li>
-                                        <strong>Project Gallery</strong>:
-                                        <a href="#gallery" style="color: aqua;">View</a>
+                                        <strong>Project Video</strong>:
+                                        <a href="https://youtu.be/AjpOfMzSp3s" target="_blank"
+                                            style="color: aqua;">View</a>
                                     </li>
                                 </ul>
                             </div>
@@ -151,27 +168,29 @@
                                 <h2 class="mb-4">Project Overview</h2>
                                 <p class="mb-4">
                                     This mini project involves the development of a fully functional 3D game created
-                                    using Unity 3D
-                                    as part of my college coursework. The game includes multiple playable maps, each
-                                    offering unique
-                                    environments and challenges to enhance gameplay variety and user engagement. Core
-                                    mechanics such
-                                    as player movement, interactions, and game logic were implemented to ensure smooth
-                                    and responsive
-                                    gameplay.
+                                    using Unity 3D as part of my college coursework. The game includes multiple playable
+                                    maps,
+                                    each
+                                    offering unique environments and challenges to enhance gameplay variety and user
+                                    engagement.
+                                    Core mechanics such as player movement, interactions, and game logic were
+                                    implemented to
+                                    ensure
+                                    smooth and responsive gameplay.
                                 </p>
                                 <p>
                                     Emphasis was placed on delivering a complete game experience through proper scene
                                     management,
                                     level transitions, and interactive elements within each map. This project
-                                    demonstrates a solid
+                                    demonstrates a
+                                    solid
                                     understanding of game development fundamentals, Unity’s workflow, and real-time
                                     rendering.
                                 </p>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
 
                     <hr class="section-divider">
 
@@ -186,6 +205,7 @@
                                         class="img-fluid">
                                 </a>
                             </div>
+
                             <div class="col-md-4 col-sm-6">
                                 <a href="./assets/img/portfolio/Main Menu.jpg" class="glightbox"
                                     data-gallery="portfolio-details-gallery">
@@ -193,13 +213,13 @@
                                         class="img-fluid">
                                 </a>
                             </div>
+
                             <div class="col-md-4 col-sm-6">
                                 <a href="./assets/img/portfolio/Gate.png" class="glightbox"
                                     data-gallery="portfolio-details-gallery">
                                     <img src="./assets/img/portfolio/Gate.png" alt="Gallery Image 3" class="img-fluid">
                                 </a>
                             </div>
-
                         </div>
                     </div>
 
@@ -208,7 +228,9 @@
                     <!-- Key Features -->
                     <div class="features">
                         <h3 class="mb-5">Key Features</h3>
+
                         <div class="row g-4">
+
                             <div class="col-md-6">
                                 <div class="feature-item">
                                     <div class="d-flex">
@@ -216,8 +238,8 @@
                                         <div>
                                             <h4>Multiple Playable Maps</h4>
                                             <p class="mb-0">
-                                                Designed and implemented multiple game maps with unique environments
-                                                and layouts,
+                                                Designed and implemented multiple game maps with unique environments and
+                                                layouts,
                                                 providing varied gameplay experiences and increasing replayability.
                                             </p>
                                         </div>
@@ -233,8 +255,9 @@
                                             <h4>Fully Functional Game Mechanics</h4>
                                             <p class="mb-0">
                                                 Developed complete gameplay mechanics including player controls,
-                                                collision handling,
-                                                objectives, and game logic to ensure a smooth and reliable gaming
+                                                collision
+                                                handling, objectives, and game logic to ensure a smooth and reliable
+                                                gaming
                                                 experience.
                                             </p>
                                         </div>
@@ -250,7 +273,8 @@
                                             <h4>Optimized Performance</h4>
                                             <p class="mb-0">
                                                 Optimized scenes and assets to maintain stable performance across
-                                                different maps,
+                                                different
+                                                maps,
                                                 ensuring consistent frame rates during gameplay.
                                             </p>
                                         </div>
@@ -266,22 +290,22 @@
                                             <h4>Scene Management & Flow</h4>
                                             <p class="mb-0">
                                                 Implemented smooth scene transitions, level loading, and basic game
-                                                state management
-                                                to create a cohesive end-to-end game experience.
+                                                state
+                                                management to create a cohesive end-to-end game experience.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
-
 
                 </div>
             </div>
 
-            </div>
-        </section><!-- /Portfolio Details Section -->
+        </section>
+
 
     </main>
 
